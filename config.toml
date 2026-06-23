@@ -1,0 +1,19 @@
+[browser]
+debugger_address = "localhost:9222"
+wait_timeout = 15
+
+[scrape]
+type = "cars"
+sort = "recent"
+start_page = 1
+end_page = 1
+page_delay = 1.5
+
+[download]
+host_priority = ["modsfire", "modslocker", "gdrive", "mega"]
+out_dir = "download"
+
+[paths]
+db = "DB/pitwall.sqlite"
+logs = "logs"
+
