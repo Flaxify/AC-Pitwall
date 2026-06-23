@@ -28,12 +28,7 @@ $venvPython = Join-Path $PSScriptRoot ".venv\Scripts\python.exe"
 Write-Host "[setup] installing pitwall into .venv"
 & $venvPython -m pip --disable-pip-version-check install -e .
 
-try {
-    Invoke-RestMethod -Uri "http://localhost:9222/json/version" -TimeoutSec 2 | Out-Null
-} catch {
-    Write-Warning "Chrome remote debugging is not reachable at localhost:9222."
-    Write-Warning "Start Chrome with: chrome.exe --remote-debugging-port=9222 --user-data-dir=`"$env:TEMP\chrome-debug`""
-}
+& (Join-Path $PSScriptRoot "start_browser.ps1")
 
 if (-not $PitwallArgs -or $PitwallArgs.Count -eq 0) {
     $PitwallArgs = @("scrape")

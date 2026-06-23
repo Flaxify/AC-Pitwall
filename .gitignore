@@ -1,6 +1,7 @@
 __pycache__/
 *.py[cod]
 .venv/
+.chrome-debug/
 *.egg-info/
 /.codex/
 /snippets/

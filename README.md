@@ -110,11 +110,15 @@ cd pitwall
 ```
 
 ### Prerequisite: debug-enabled Chromium
-Phase 1 & 2 attach to a running Chromium with remote debugging:
+Phase 1 & 2 attach to a running Chromium with remote debugging. The launcher
+starts this automatically when it can; to start it manually:
 ```bash
 chromium --remote-debugging-port=9222 --user-data-dir=/tmp/chrome-debug
 ```
-The launcher warns if this endpoint is not reachable.
+On Windows, you can also run:
+```powershell
+.\start_browser.ps1
+```
 
 ---
 
