@@ -92,22 +92,21 @@ without re-downloading.
 ## Quick start (OOBE)
 
 Clone and run the launcher. It sets up a virtualenv, installs dependencies,
-checks for a debug-enabled Chromium, initializes the database, and presents a
-menu.
+checks for a debug-enabled Chromium, initializes the database, and runs the
+requested phase.
 
-**Linux / WSL / macOS** (uses [`gum`](https://github.com/charmbracelet/gum) for
-the menu):
+**Linux / WSL / macOS:**
 ```bash
-git clone <repo-url> pitwall
+git clone https://github.com/Flaxify/AC-Pitwall.git pitwall
 cd pitwall
-./start.sh
+./start.sh scrape --type cars --sort rating --start 1 --end 2
 ```
 
 **Windows (PowerShell):**
 ```powershell
-git clone <repo-url> pitwall
+git clone https://github.com/Flaxify/AC-Pitwall.git pitwall
 cd pitwall
-.\start.ps1
+.\start.ps1 scrape --type cars --sort rating --start 1 --end 2
 ```
 
 ### Prerequisite: debug-enabled Chromium
@@ -115,7 +114,7 @@ Phase 1 & 2 attach to a running Chromium with remote debugging:
 ```bash
 chromium --remote-debugging-port=9222 --user-data-dir=/tmp/chrome-debug
 ```
-`start.sh` will prompt/launch this for you if it isn't running.
+The launcher warns if this endpoint is not reachable.
 
 ---
 
@@ -123,7 +122,7 @@ chromium --remote-debugging-port=9222 --user-data-dir=/tmp/chrome-debug
 
 ```
 pitwall/
-├── start.sh              # GUM-powered interactive menu (Linux/WSL/macOS)
+├── start.sh              # Linux/WSL/macOS launcher
 ├── start.ps1             # Windows launcher
 ├── config.toml           # all tunables: page ranges, hosts, paths, rate limits
 ├── pyproject.toml        # dependencies + console entry point
@@ -301,4 +300,3 @@ pitwall adopt /path/to/existing/mods
   later as a preferred high-bandwidth source.
 - [ ] Automatic import into the Assetto Corsa `content/` directory.
 - [ ] Parallel downloads with global rate limiting.
-- [ ] `start.ps1` feature parity with the `gum` menu.
