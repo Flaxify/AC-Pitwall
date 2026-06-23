@@ -1,0 +1,2 @@
+"""MEGA resolver placeholder."""
+

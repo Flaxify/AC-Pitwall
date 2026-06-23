@@ -1,0 +1,2 @@
+"""Google Drive resolver placeholder."""
+

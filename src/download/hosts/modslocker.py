@@ -1,0 +1,2 @@
+"""ModsLocker resolver placeholder."""
+
